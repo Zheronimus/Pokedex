@@ -47,10 +47,10 @@ public class Footer {
 
 					if(pokemon.hasMega(megaDex)) {
 						if(pokemon.hasSecondMega(megaDex)) {
-							body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolX");
-							body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolY");
+							body.addMegaBox(pokemon, "MegaSymbolX");
+							body.addMegaBox(pokemon, "MegaSymbolY");
 						} else {
-							body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbol");
+							body.addMegaBox(pokemon, "MegaSymbol");
 						}
 					} else {
 						body.removeMegaBox();

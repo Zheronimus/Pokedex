@@ -155,7 +155,7 @@ public class Body {
 
 
 
-    public void addMegaBox(Pokemon pokemon, ArrayList<Pokemon> nationalDex, ArrayList<Pokemon> megaDex, String imgFile) {
+    public void addMegaBox(Pokemon pokemon, String imgFile) {
 
         FormCheckBox megaBox;
 

@@ -44,11 +44,11 @@ public class Header {
 
                     if(pokemon.hasMega(megaDex)) {
                         if(pokemon.hasSecondMega(megaDex)) {
-                            body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolX");
-                            body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolY");
+                            body.addMegaBox(pokemon, "MegaSymbolX");
+                            body.addMegaBox(pokemon, "MegaSymbolY");
                         } else {
                             if(!Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasMega(megaDex)) {
-                                body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbol");
+                                body.addMegaBox(pokemon, "MegaSymbol");
                             }
                         }
                     } else {
@@ -94,11 +94,11 @@ public class Header {
 
                     if(pokemon.hasMega(megaDex)) {
                         if(pokemon.hasSecondMega(megaDex)) {
-                            body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolX");
-                            body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolY");
+                            body.addMegaBox(pokemon, "MegaSymbolX");
+                            body.addMegaBox(pokemon, "MegaSymbolY");
                         } else {
                             if(!Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasMega(megaDex)) {
-                                body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbol");
+                                body.addMegaBox(pokemon, "MegaSymbol");
                             }
                         }
                     } else {
