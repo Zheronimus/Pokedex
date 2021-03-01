@@ -30,7 +30,6 @@ public class Dex {
 
 	
 	public static Pokemon getPokemonByEntry(int entryNum) {
-
 		return nationalDex.get(entryNum - 1).clone();
 	}
 	
