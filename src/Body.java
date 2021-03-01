@@ -59,7 +59,7 @@ public class Body {
         VBox.setMargin(typing, new Insets(25, 0, 0, 0));
         VBox.setMargin(sprite, new Insets(25, 0, 0, 0));
         VBox.setMargin(checkboxContent, new Insets(25, 0, 0, 0));
-        VBox.setMargin(showStatsLabel, new Insets(80, 0, 0, 0));
+        VBox.setMargin(showStatsLabel, new Insets(81, 0, 0, 0));
 
         body.setContent(bodyContent);
         body.setPannable(true);
@@ -168,7 +168,7 @@ public class Body {
         megaBox.addMegaListener(pokemon, this);
         checkboxContent.getChildren().add(megaBox.getFormCheckBox());
 
-        VBox.setMargin(showStatsLabel, new Insets(19, 0, 0, 0));
+        VBox.setMargin(showStatsLabel, new Insets(20, 0, 0, 0));
     }
 
 
@@ -188,7 +188,7 @@ public class Body {
         }
 
         if(checkboxContent.getChildren().isEmpty()) {
-            VBox.setMargin(showStatsLabel, new Insets(80, 0, 0, 0));
+            VBox.setMargin(showStatsLabel, new Insets(81, 0, 0, 0));
         }
     }
 
@@ -201,7 +201,7 @@ public class Body {
         checkboxContent.getChildren().add(gigantamaxBox.getFormCheckBox());
         gigantamaxBox.addGigantamaxListener(pokemon, this);
 
-        VBox.setMargin(showStatsLabel, new Insets(19, 0, 0, 0));
+        VBox.setMargin(showStatsLabel, new Insets(20, 0, 0, 0));
     }
 
 
@@ -221,7 +221,7 @@ public class Body {
         }
 
         if(checkboxContent.getChildren().isEmpty()) {
-            VBox.setMargin(showStatsLabel, new Insets(80, 0, 0, 0));
+            VBox.setMargin(showStatsLabel, new Insets(81, 0, 0, 0));
         }
     }
 
@@ -236,11 +236,11 @@ public class Body {
 
         hideStatsLabel.getStyleClass().add("statsVisibilityLabel");
 
-        VBox.setMargin(hideStatsLabel, new Insets(0, 0, 18, 0));
+        VBox.setMargin(hideStatsLabel, new Insets(0, 0, 7, 0));
 
         stats.setStats(new Stats(pokemon).getStats());
 
-        VBox.setMargin(stats.getStats(), new Insets(125, 0, 55, 0));
+        VBox.setMargin(stats.getStats(), new Insets(130, 0, 55, 0));
 
         if(target.onMouseClickedProperty() != null) {
             scrollAnimation();

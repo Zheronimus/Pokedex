@@ -125,7 +125,7 @@ public class Header {
         });
 
         headerContent.setAlignment(Pos.CENTER);
-        headerContent.getChildren().addAll(new VBox(prevButton, new Label(String.format("#%03d", pokemon.getEntryNum()))), new VBox(nextButton, new Label(String.format("#%03d", Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).getEntryNum()))));
+        headerContent.getChildren().addAll(new VBox(5, prevButton, new Label(String.format("#%03d", pokemon.getEntryNum()))), new VBox(5, nextButton, new Label(String.format("#%03d", Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).getEntryNum()))));
         prevButton.setGraphic(new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(pokemon.getEntryNum()).getName(), "Bit Sprites"), 0, 0, true, true)));
         nextButton.setGraphic(new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).getName(), "Bit Sprites"), 0, 0, true, true)));
         prevButton.getStyleClass().add("navButton");
@@ -136,7 +136,7 @@ public class Header {
         headerContent.getChildren().get(1).getStyleClass().add("headerEntryLabel");
 
         header.setAlignment(Pos.CENTER);
-        header.setMinHeight(80);
+        header.setMinHeight(90);
         header.getStyleClass().add("header");
         header.getChildren().add(headerContent);
     }
