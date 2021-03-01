@@ -68,7 +68,7 @@ public class Footer {
 					body.setSprite(pokemon);
 					body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
 					body.setCheckboxState();
-					header.setSprite(nationalDex, pokemon.getEntryNum());
+					header.setSprite(pokemon.getEntryNum(), nationalDex.size());
 					header.setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
 				}
 			}

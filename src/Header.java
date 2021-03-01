@@ -67,7 +67,7 @@ public class Header {
                     body.setSprite(pokemon);
                     body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
                     body.hideStats();
-                    setSprite(nationalDex, pokemon.getEntryNum());
+                    setSprite(pokemon.getEntryNum(), nationalDex.size());
                     setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
                 }
             }
@@ -117,7 +117,7 @@ public class Header {
                     body.setSprite(pokemon);
                     body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
                     body.hideStats();
-                    setSprite(nationalDex, pokemon.getEntryNum());
+                    setSprite(pokemon.getEntryNum(), nationalDex.size());
                     setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
                 }
             }
@@ -146,15 +146,31 @@ public class Header {
 
 
 
-    public void setSprite(ArrayList<Pokemon> nationalDex, int entryNum) {
+    public void setSprite(int entryNum, final int DEX_SIZE) {
 
         ImageView sprite;
 
-        if(entryNum > 1 && entryNum < nationalDex.size()) {
+        if(entryNum > 1 && entryNum < DEX_SIZE) {
             sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(entryNum - 1).getName(), "Bit Sprites"), 0, 0, true, true));
             prevButton.setGraphic(sprite);
 
             sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(entryNum + 1).getName(), "Bit Sprites"), 0, 0, true, true));
+            nextButton.setGraphic(sprite);
+        }
+
+        else if(entryNum == 1) {
+            sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(entryNum).getName(), "Bit Sprites"), 0, 0, true, true));
+            prevButton.setGraphic(sprite);
+
+            sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(entryNum + 1).getName(), "Bit Sprites"), 0, 0, true, true));
+            nextButton.setGraphic(sprite);
+        }
+
+        else if(entryNum == DEX_SIZE) {
+            sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(entryNum - 1).getName(), "Bit Sprites"), 0, 0, true, true));
+            prevButton.setGraphic(sprite);
+
+            sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(entryNum).getName(), "Bit Sprites"), 0, 0, true, true));
             nextButton.setGraphic(sprite);
         }
     }
