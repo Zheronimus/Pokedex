@@ -1,0 +1,162 @@
+
+{
+	"type": "Normal",
+	"superEffective": null,
+	"notEffective": ["Rock", "Steel"],
+	"neutral": ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Dragon", "Dark", "Fairy"] 
+}
+
+
+
+{ 
+	"type": "Fire",
+	"superEffective": ["Grass", "Ice", "Bug", "Steel"],
+	"notEffective": ["Fire", "Water", "Rock", "Dragon"], 
+	"neutral": ["Normal", "Electric", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Ghost", "Dark", "Fairy"] 
+}
+
+
+
+{
+	"type": "Water",
+	"superEffective": ["Fire", "Ground", "Rock"],
+	"notEffective": ["Water", "Grass", "Dragon"],
+	"neutral": ["Normal", "Electric", "Ice", "Fighting", "Poison", "Flying", "Psychic", "Bug", "Ghost", "Dark", "Steel", "Fairy"]
+}
+
+
+
+{
+	"type": "Electric",
+	"superEffective": ["Water", "Flying"],
+	"notEffective": ["Electric", "Grass", "Dragon"],
+	"neutral": ["Normal", "Fire", "Ice", "Fighting", "Poison", "Psychic", "Bug", "Rock", "Ghost", "Dark", "Steel", "Fairy"]
+}
+
+
+
+{
+	"type": "Grass",
+	"superEffective": ["Water", "Ground", "Rock"], 
+	"notEffective": ["Fire", "Grass", "Poison", "Flying", "Bug", "Dragon", "Steel"],
+	"neutral": ["Normal", "Electric". "Ice", "Fighting", "Psychic", "Ghost", "Dark", "Fairy"]
+}
+
+
+
+{
+	"type": "Ice",
+	"superEffective": ["Grass", "Ground", "Flying", "Dragon"],
+	"notEffective": ["Fire", "Water", "Ice", "Steel"],
+	"neutral": ["Normal", "Electric", "Fighting", "Poison", "Psychic", "Bug", "Rock", "Ghost", "Dark", "Fairy"]
+}
+
+
+
+{
+	"type": "Fighting",
+	"superEffective": ["Normal", "Ice", "Rock", "Dark", "Steel"],
+	"notEffective": ["Poison", "Flying", "Psychic", "Bug", "Fairy"],
+	"neutral": ["Fire", "Water", "Electric", "Grass", "Fighting", "Ground", "Dragon"]
+}
+
+
+
+{
+	"type": "Poison",
+	"superEffective": ["Grass", "Fairy"],
+	"notEffective": ["Poison", "Ground", "Rock", "Ghost"],
+	"neutral": ["Normal", "Fire", "Water", "Electric", "Ice", "Fighting", "Flying", "Psychic", "Bug", "Dragon", "Dark"]
+}
+
+
+
+{
+	"type": "Ground",
+	"superEffective": ["Fire", "Electric", "Poison", "Rock", "Steel"],
+	"notEffective": ["Grass", "Bug"],
+	"neutral": ["Normal", "Water", "Ice", "Fighting", "Ground", "Psychic", "Ghost", "Dragon", "Dark", "Fairy"]
+}
+
+
+
+{
+	"type": "Flying",
+	"superEffective": ["Grass", "Fighting", "Bug"],
+	"notEffective": ["Electric", "Rock", "Steel"],
+	"neutral": ["Normal", "Fire", "Water", "Ice", "Poison", "Ground", "Flying", "Psychic", "Ghost", "Dragon", "Dark", "Fairy"]
+}
+
+
+
+{
+	"type": "Psychic",
+	"superEffective": ["Fighting", "Poison"],
+	"notEffective": ["Psychic", "Steel"],
+	"neutral": ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Ground", "Flying", "Bug", "Rock", "Ghost", "Dragon", "Fairy"]
+}
+
+
+
+{
+	"type": "Bug",
+	"superEffective": ["Grass", "Psychic", "Dark"],
+	"notEffective": ["Fire", "Fighting", "Poison", "Flying", "Ghost", "Steel", "Fairy"],
+	"neutral": ["Normal", "Water", "Electric", "Ice", "Ground", "Bug", "Rock", "Dragon"]
+}
+
+
+
+{
+	"type": "Rock",
+	"superEffective": ["Fire", "Ice", "Flying", "Bug"],
+	"notEffective": ["Fighting", "Ground", "Steel"],
+	"neutral": ["Normal", "Water", "Electric", "Grass", "Poison", "Psychic", "Rock", "Ghost", "Dragon", "Dark", "Fairy"]
+}
+
+
+
+{
+	"type": "Ghost",
+	"superEffective": ["Psychic", "Ghost"],
+	"notEffective": ["Dark"],
+	"neutral": ["Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Bug", "Rock", "Dragon", "Steel", "Fairy"]
+}
+
+
+
+{
+	"type": "Dragon",
+	"superEffective": ["Dragon"],
+	"notEffective": ["Steel"],
+	"neutral": ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dark"]
+}
+
+
+
+{
+	"type": "Dark",
+	"superEffective": ["Psychic", "Ghost"],
+	"notEffective": ["Fighting", "Dark", "Fairy"],
+	"neutral": ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Poison", "Ground", "Flying", "Bug", "Rock", "Dragon", "Steel"]
+}
+
+
+
+{
+	"type": "Steel",
+	"superEffective": ["Ice", "Rock", "Fairy"],
+	"notEffective": ["Fire", "Water", "Electric", "Steel"],
+	"neutral": ["Normal", "Grass", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Ghost", "Dragon", "Dark"]
+}
+
+
+
+{
+	"type": "Fairy",
+	"superEffective": ["Fighting", "Dragon", "Dark"],
+	"notEffective": ["Fire", "Poison", "Steel"],
+	"neutral": ["Normal", "Water", "Electric", "Grass", "Ice", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Fairy"]
+}
+
+	

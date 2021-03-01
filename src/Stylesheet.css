@@ -1,0 +1,70 @@
+
+.navButton {
+ 	-fx-background-color: Transparent;
+
+ 	-fx-min-width: 50px;
+
+ 	-fx-min-height: 50px;
+
+ 	-fx-max-width: 50px;
+
+ 	-fx-max-height: 50px;
+}
+
+
+
+.header {
+	-fx-background-color: #EE5737;
+
+	-fx-border-color: black;
+
+	-fx-border-width: 0px 0px 2px 0px;
+}
+
+
+
+.body {
+	-fx-background-color: #D3D3D3;
+}
+
+
+
+.footer {
+	-fx-background-color: #EE5737;
+
+	-fx-border-color: Black;
+
+	-fx-border-width: 2px 0px 0px 0px;
+}
+
+
+
+.largeLabel {
+	-fx-font-family: "Century Gothic";
+
+	-fx-font-size: 25px;
+}
+
+
+
+.smallLabel {
+	-fx-font-family: "Century Gothic";
+
+	-fx-font-size: 18px;
+}
+
+
+
+.headerEntryLabel {
+    -fx-font-family: "Century Gothic";
+
+    -fx-font-size: 12px;
+}
+
+
+
+.statsVisibilityLabel {
+	-fx-text-fill: "Gray";
+
+	-fx-font-size: 17px;
+}
