@@ -1,53 +1,46 @@
 import java.util.ArrayList;
 
-public class Dex extends ArrayList<Pokemon> {
-	
-	private static final long serialVersionUID = 1L;
+public class Dex {
+
+	private static ArrayList<Pokemon> nationalDex;
+	private static ArrayList<Pokemon> megaDex;
 	
 	
 	
 	public Dex() {
+		nationalDex = new ArrayList<>();
+		megaDex = new ArrayList<>();
 
+		PokeData.setPokeData(nationalDex, "NationalDex");
+		PokeData.setPokeData(megaDex, "MegaDex");
 	}
 
 
 
-	public void fillNationalDex() {
-		
-		PokeData pokeData = new PokeData();
-		
-		pokeData.setPokeData(this, "NationalDex");
+	public ArrayList<Pokemon> getNationalDex() {
+		return nationalDex;
 	}
-	
-	
-	
-	public void fillMegaDex() {
-		
-		PokeData pokeData = new PokeData();
-		
-		pokeData.setPokeData(this, "MegaDex");
-	}
-	
-	
-	
-	public Pokemon getPokemonByEntry(int entryNum) {
-		
-		ArrayList<Pokemon> nationalDex = new ArrayList<>();
 
-		for(int i = 0; i < this.size(); i++) {
-			nationalDex.add(this.get(i).clone());
-		}
 
-		return nationalDex.get(entryNum - 1);
+
+	public ArrayList<Pokemon> getMegaDex() {
+		return megaDex;
+	}
+
+
+	
+	public static Pokemon getPokemonByEntry(int entryNum) {
+
+		return nationalDex.get(entryNum - 1).clone();
 	}
 	
 	
 	
-	public Pokemon getPokemonByName(String name) {
+	public static Pokemon getPokemonByName(String name) {
 		
-		for(int i = 1; i <= this.size(); i++) {
-			if(name.equalsIgnoreCase(this.getPokemonByEntry(i).getName())) {
-				return this.get(i - 1);
+		for(int i = 1; i <= nationalDex.size(); i++) {
+			if(name.equalsIgnoreCase(getPokemonByEntry(i).getName())) {
+				return nationalDex.get(i - 1);
 			}
 		}
 		
@@ -56,10 +49,10 @@ public class Dex extends ArrayList<Pokemon> {
 	
 	
 	
-    public int getMegaIndex(Pokemon pokemon) {
+    public static int getMegaIndex(Pokemon pokemon) {
     	
-        for(int i = 0; i < this.size(); i++) {
-            if(this.get(i).getEntryNum() == pokemon.getEntryNum()) {
+        for(int i = 0; i < megaDex.size(); i++) {
+            if(megaDex.get(i).getEntryNum() == pokemon.getEntryNum()) {
 				return i;
 			}
         }
@@ -69,7 +62,7 @@ public class Dex extends ArrayList<Pokemon> {
 	
 	
 	
-	public Pokemon getMegaByIndex(int index) {
-		return this.get(index);
+	public static Pokemon getMegaByIndex(int index) {
+		return megaDex.get(index);
 	}
 }

@@ -3,6 +3,7 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class PokeData {
 	
@@ -12,7 +13,7 @@ public class PokeData {
 	
 	
 	
-	private Connection connect() {
+	private static Connection connect() {
 		
 		String connString = "jdbc:sqlite:PokemonDB.db";
 		Connection conn = null;
@@ -28,7 +29,7 @@ public class PokeData {
 	
 	
 	
-	public void setPokeData(Dex dex, String tableName) {
+	public static void setPokeData(ArrayList<Pokemon> dex, String tableName) {
 		
 		ResultSet data;
 		String sql = "SELECT * FROM " + tableName;

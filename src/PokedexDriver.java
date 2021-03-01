@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.File;
+import java.util.ArrayList;
 
 public class PokedexDriver extends Application {
 
@@ -20,13 +21,10 @@ public class PokedexDriver extends Application {
 		primaryStage.getIcons().add(new Image(new File("Resources/Pokeball.png").toURI().toURL().toString(), false));
 		primaryStage.setResizable(false);
 
-		Dex nationalDex = new Dex();
-		Dex megaDex = new Dex();
-		
-		nationalDex.fillNationalDex(); 
-		megaDex.fillMegaDex();
+		ArrayList<Pokemon> nationalDex = new Dex().getNationalDex();
+		ArrayList<Pokemon> megaDex = new Dex().getMegaDex();
 
-		Pokemon pokemon = nationalDex.getPokemonByEntry(1);
+		Pokemon pokemon = Dex.getPokemonByEntry(1);
 
 		Body body = new Body(pokemon);
 		Header header = new Header(pokemon, body, nationalDex, megaDex);

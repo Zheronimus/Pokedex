@@ -64,7 +64,7 @@ public class FormCheckBox {
 
 
 
-    public void addMegaListener(Pokemon pokemon, Body body, Dex nationalDex, Dex megaDex) {
+    public void addMegaListener(Pokemon pokemon, Body body) {
 
         checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
 
@@ -72,15 +72,15 @@ public class FormCheckBox {
 
             if(newValue) {
                 if(formCheckBox.getId().equals("megaBoxY")) {
-                    newPokemon = megaDex.getMegaByIndex(megaDex.getMegaIndex(pokemon) + 1);
+                    newPokemon = Dex.getMegaByIndex(Dex.getMegaIndex(pokemon) + 1);
                 } else {
-                    newPokemon = megaDex.getMegaByIndex(megaDex.getMegaIndex(pokemon));
+                    newPokemon = Dex.getMegaByIndex(Dex.getMegaIndex(pokemon));
                 }
 
                 pokemon.setMega(true);
             } else {
                 pokemon.setMega(false);
-                newPokemon = nationalDex.getPokemonByEntry(pokemon.getEntryNum());
+                newPokemon = Dex.getPokemonByEntry(pokemon.getEntryNum());
             }
 
             pokemon.setName(newPokemon.getName());
@@ -97,7 +97,7 @@ public class FormCheckBox {
             body.setSprite(pokemon);
             body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
             body.setCheckboxState();
-            body.setStats(pokemon);
+            body.hideStats();
         });
     }
 

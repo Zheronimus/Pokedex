@@ -5,13 +5,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+
 public class Footer {
 
 	private final VBox footer;
 
 
 
-	public Footer(Pokemon pokemon, Body body, Header header, Dex nationalDex, Dex megaDex) {
+	public Footer(Pokemon pokemon, Body body, Header header, ArrayList<Pokemon> nationalDex, ArrayList<Pokemon> megaDex) {
 		
 		TextField searchBar = new TextField();
 		Button searchButton = new Button("\uD83D\uDD0E");
@@ -26,9 +28,9 @@ public class Footer {
 				Pokemon newPokemon;
 
 				if((isNumeric(input)) && (Integer.parseInt(input) > 0) && (Integer.parseInt(input) != pokemon.getEntryNum()) && (Integer.parseInt(input) <= nationalDex.size())) {
-					newPokemon = nationalDex.get(Integer.parseInt(input) - 1);
+					newPokemon = Dex.getPokemonByEntry(Integer.parseInt(input));
 				} else {
-					newPokemon = nationalDex.getPokemonByName(input);
+					newPokemon = Dex.getPokemonByName(input);
 				}
 
 				if(newPokemon != null) {
@@ -57,7 +59,7 @@ public class Footer {
 					if(pokemon.hasGigantamax()) {
 						body.addGigantamaxBox(pokemon);
 					} else {
-						if(nationalDex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasGigantamax()) {
+						if(Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasGigantamax()) {
 							body.removeGigantamaxBox();
 						}
 					}
@@ -69,7 +71,6 @@ public class Footer {
 					body.setCheckboxState();
 					header.setSprite(nationalDex, pokemon.getEntryNum());
 					header.setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
-					body.setStats(pokemon);
 				}
 			}
 

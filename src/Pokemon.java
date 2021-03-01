@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Pokemon {
 	
@@ -200,7 +201,7 @@ public class Pokemon {
 	
 
 	
-	public boolean hasMega(Dex megaDex) {
+	public boolean hasMega(ArrayList<Pokemon> megaDex) {
 		
 		for(Pokemon pokemon : megaDex) {
 			if(pokemon.entryNum <= this.entryNum) {
@@ -217,12 +218,12 @@ public class Pokemon {
 	
 	
 	
-    public boolean hasSecondMega(Dex megaDex) {
+    public boolean hasSecondMega(ArrayList<Pokemon> megaDex) {
     	
         for(int i = 0; i < megaDex.size(); i++) {
-        	if(megaDex.getMegaIndex(this) != megaDex.size() - 1) {
-        		if(this.entryNum == megaDex.getMegaByIndex(megaDex.getMegaIndex(this) + 1).entryNum) {
-		            if(this.entryNum == megaDex.getMegaByIndex(megaDex.getMegaIndex(this) + 1).entryNum) {
+        	if(Dex.getMegaIndex(this) != megaDex.size() - 1) {
+        		if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
+		            if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
 						return true;
 					}
         		} else {

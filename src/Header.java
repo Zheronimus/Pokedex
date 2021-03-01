@@ -7,6 +7,8 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
 
+import java.util.ArrayList;
+
 public class Header {
 
     private HBox header;
@@ -16,7 +18,7 @@ public class Header {
 
 
 
-    public Header(Pokemon pokemon, Body body, Dex nationalDex, Dex megaDex) {
+    public Header(Pokemon pokemon, Body body, ArrayList<Pokemon> nationalDex, ArrayList<Pokemon> megaDex) {
 
         header = new HBox();
         prevButton = new Button();
@@ -28,7 +30,7 @@ public class Header {
                 if(pokemon.getEntryNum() > 1) {
                     Pokemon newPokemon;
 
-                    newPokemon = nationalDex.getPokemonByEntry(pokemon.getEntryNum() - 1);
+                    newPokemon = Dex.getPokemonByEntry(pokemon.getEntryNum() - 1);
 
                     pokemon.setName(newPokemon.getName());
                     pokemon.setEntryNum(newPokemon.getEntryNum());
@@ -46,7 +48,7 @@ public class Header {
                             body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolX");
                             body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolY");
                         } else {
-                            if(!nationalDex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasMega(megaDex)) {
+                            if(!Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasMega(megaDex)) {
                                 body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbol");
                             }
                         }
@@ -57,7 +59,7 @@ public class Header {
                     if(pokemon.hasGigantamax()) {
                         body.addGigantamaxBox(pokemon);
                     } else {
-                        if(nationalDex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasGigantamax()) {
+                        if(Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasGigantamax()) {
                             body.removeGigantamaxBox();
                         }
                     }
@@ -67,7 +69,6 @@ public class Header {
                     body.setSprite(pokemon);
                     body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
                     body.hideStats();
-                    body.setStats(pokemon);
                     setSprite(nationalDex, pokemon.getEntryNum());
                     setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
                 }
@@ -79,7 +80,7 @@ public class Header {
                 if(pokemon.getEntryNum() < nationalDex.size()) {
                     Pokemon newPokemon;
 
-                    newPokemon = nationalDex.getPokemonByEntry(pokemon.getEntryNum() + 1);
+                    newPokemon = Dex.getPokemonByEntry(pokemon.getEntryNum() + 1);
 
                     pokemon.setName(newPokemon.getName());
                     pokemon.setEntryNum(newPokemon.getEntryNum());
@@ -97,7 +98,7 @@ public class Header {
                             body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolX");
                             body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbolY");
                         } else {
-                            if(!nationalDex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasMega(megaDex)) {
+                            if(!Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasMega(megaDex)) {
                                 body.addMegaBox(pokemon, nationalDex, megaDex, "MegaSymbol");
                             }
                         }
@@ -108,7 +109,7 @@ public class Header {
                     if(pokemon.hasGigantamax()) {
                         body.addGigantamaxBox(pokemon);
                     } else {
-                        if(nationalDex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasGigantamax()) {
+                        if(Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasGigantamax()) {
                             body.removeGigantamaxBox();
                         }
                     }
@@ -118,7 +119,6 @@ public class Header {
                     body.setSprite(pokemon);
                     body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
                     body.hideStats();
-                    body.setStats(pokemon);
                     setSprite(nationalDex, pokemon.getEntryNum());
                     setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
                 }
@@ -126,10 +126,10 @@ public class Header {
         });
 
         headerContent.setAlignment(Pos.CENTER);
-        headerContent.getChildren().addAll(new VBox(prevButton, new Label(String.format("#%03d", pokemon.getEntryNum()))), new VBox(nextButton, new Label(String.format("#%03d", nationalDex.getPokemonByEntry(pokemon.getEntryNum() + 1).getEntryNum()))));
-        sprite = new ImageView(new Image(Sprite.getImgFile(nationalDex.getPokemonByEntry(pokemon.getEntryNum()).getName(), "Bit Sprites"), 0, 0, true, true));
+        headerContent.getChildren().addAll(new VBox(prevButton, new Label(String.format("#%03d", pokemon.getEntryNum()))), new VBox(nextButton, new Label(String.format("#%03d", Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).getEntryNum()))));
+        sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(pokemon.getEntryNum()).getName(), "Bit Sprites"), 0, 0, true, true));
         prevButton.setGraphic(sprite);
-        sprite = new ImageView(new Image(Sprite.getImgFile(nationalDex.getPokemonByEntry(pokemon.getEntryNum() + 1).getName(), "Bit Sprites"), 0, 0, true, true));
+        sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).getName(), "Bit Sprites"), 0, 0, true, true));
         nextButton.setGraphic(sprite);
         prevButton.getStyleClass().add("navButton");
         nextButton.getStyleClass().add("navButton");
@@ -150,15 +150,15 @@ public class Header {
 
 
 
-    public void setSprite(Dex nationalDex, int entryNum) {
+    public void setSprite(ArrayList<Pokemon> nationalDex, int entryNum) {
 
         ImageView sprite;
 
         if(entryNum > 1 && entryNum < nationalDex.size()) {
-            sprite = new ImageView(new Image(Sprite.getImgFile(nationalDex.getPokemonByEntry(entryNum - 1).getName(), "Bit Sprites"), 0, 0, true, true));
+            sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(entryNum - 1).getName(), "Bit Sprites"), 0, 0, true, true));
             prevButton.setGraphic(sprite);
 
-            sprite = new ImageView(new Image(Sprite.getImgFile(nationalDex.getPokemonByEntry(entryNum + 1).getName(), "Bit Sprites"), 0, 0, true, true));
+            sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(entryNum + 1).getName(), "Bit Sprites"), 0, 0, true, true));
             nextButton.setGraphic(sprite);
         }
     }

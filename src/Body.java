@@ -13,11 +13,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+
 public class Body {
 
-    private Label nameLabel, entryLabel, showStatsLabel, hideStatsLabel;
+    private Label nameLabel, entryLabel, showStatsLabel;
     private ImageView typeOneImg, typeTwoImg, sprite;
-    private Stats stats;
     private VBox topContent, bottomContent, bodyContent;
     private HBox checkboxContent, typing;
     private ScrollPane body;
@@ -29,11 +30,9 @@ public class Body {
         nameLabel = new Label(pokemon.getName());
         entryLabel = new Label(String.format("#%03d", pokemon.getEntryNum()));
         showStatsLabel = new Label("\u2014" + " Show Stats " + "\u2014");
-        hideStatsLabel = new Label("\u2014" + " Hide Stats " + "\u2014");
         typeOneImg = new ImageView(new Image(Sprite.getImgFile(pokemon.getTypeOne(), "Type Images"), 100, 25, true, true));
         typeTwoImg = new ImageView(new Image(Sprite.getImgFile(pokemon.getTypeTwo(), "Type Images"), 100, 25, true, true));
         typing = new HBox(30, typeOneImg, typeTwoImg);
-        stats = new Stats(pokemon);
         sprite = new ImageView(new Image(Sprite.getImgFile(pokemon.getName(), "Sprites"), 225, 225, true, true));
         checkboxContent = new HBox(25);
         topContent = new VBox(nameLabel, entryLabel, typing, sprite, checkboxContent, showStatsLabel);
@@ -43,8 +42,7 @@ public class Body {
 
         VBox.setVgrow(bodyContent, Priority.NEVER);
 
-        showStatsLabel.setOnMouseClicked(clickEvent -> showStats(stats, showStatsLabel));
-        hideStatsLabel.setOnMouseClicked(clickEvent -> hideStats());
+        showStatsLabel.setOnMouseClicked(clickEvent -> showStats(pokemon, showStatsLabel));
 
         topContent.setAlignment(Pos.TOP_CENTER);
         bottomContent.setAlignment(Pos.TOP_CENTER);
@@ -54,7 +52,6 @@ public class Body {
         nameLabel.getStyleClass().add("largeLabel");
         entryLabel.getStyleClass().add("largeLabel");
         showStatsLabel.getStyleClass().add("statsVisibilityLabel");
-        hideStatsLabel.getStyleClass().add("statsVisibilityLabel");
         body.getStyleClass().add("body");
 
         VBox.setMargin(nameLabel, new Insets(25, 0, 0, 0));
@@ -63,8 +60,6 @@ public class Body {
         VBox.setMargin(sprite, new Insets(25, 0, 0, 0));
         VBox.setMargin(checkboxContent, new Insets(25, 0, 0, 0));
         VBox.setMargin(showStatsLabel, new Insets(80, 0, 0, 0));
-        VBox.setMargin(stats.getStats(), new Insets(125, 0, 55, 0));
-        VBox.setMargin(hideStatsLabel, new Insets(0, 0, 18, 0));
 
         body.setContent(bodyContent);
         body.setPannable(true);
@@ -113,26 +108,19 @@ public class Body {
 
         if(pokemon.isMega()) {
             sprite = new ImageView(new Image(Sprite.getImgFile(pokemon.getName(), "Mega Sprites"), 225, 225, true, true));
-        } else if(pokemon.isGigantamax()) {
+        }
+
+        else if(pokemon.isGigantamax()) {
             sprite = new ImageView(new Image(Sprite.getImgFile(pokemon.getName(), "Gigantamax Sprites"), 225, 225, true, true));
-        } else {
+        }
+
+        else {
             sprite = new ImageView(new Image(Sprite.getImgFile(pokemon.getName(), "Sprites"), 225, 225, true, true));
         }
 
         topContent.getChildren().set(3, sprite);
 
         VBox.setMargin(sprite, new Insets(25, 0, 0, 0));
-    }
-
-
-
-    public void setStats(Pokemon pokemon) {
-
-        hideStats();
-
-        stats.setStats(new Stats(pokemon).getStats());
-
-        VBox.setMargin(stats.getStats(), new Insets(125, 0, 55, 0));
     }
 
 
@@ -167,17 +155,17 @@ public class Body {
 
 
 
-    public void addMegaBox(Pokemon pokemon, Dex nationalDex, Dex megaDex, String imgFile) {
+    public void addMegaBox(Pokemon pokemon, ArrayList<Pokemon> nationalDex, ArrayList<Pokemon> megaDex, String imgFile) {
 
         FormCheckBox megaBox;
 
-        if(checkboxContent.getChildren().contains("megaBox")) {
+        if(checkboxContent.getChildren().size() > 0) {
             megaBox = new FormCheckBox(imgFile, "megaBoxY");
         } else {
             megaBox = new FormCheckBox(imgFile, "megaBox");
         }
 
-        megaBox.addMegaListener(pokemon, this, nationalDex, megaDex);
+        megaBox.addMegaListener(pokemon, this);
         checkboxContent.getChildren().add(megaBox.getFormCheckBox());
 
         VBox.setMargin(showStatsLabel, new Insets(19, 0, 0, 0));
@@ -199,7 +187,9 @@ public class Body {
             checkBox.setSelected(false);
         }
 
-        VBox.setMargin(showStatsLabel, new Insets(80, 0, 0, 0));
+        if(checkboxContent.getChildren().isEmpty()) {
+            VBox.setMargin(showStatsLabel, new Insets(80, 0, 0, 0));
+        }
     }
 
 
@@ -230,12 +220,27 @@ public class Body {
             checkBox.setSelected(false);
         }
 
-        VBox.setMargin(showStatsLabel, new Insets(80, 0, 0, 0));
+        if(checkboxContent.getChildren().isEmpty()) {
+            VBox.setMargin(showStatsLabel, new Insets(80, 0, 0, 0));
+        }
     }
 
 
 
-    private void showStats(Stats stats, Node target) {
+    private void showStats(Pokemon pokemon, Node target) {
+
+        Label hideStatsLabel = new Label("\u2014" + " Hide Stats " + "\u2014");
+        Stats stats = new Stats(pokemon);
+
+        hideStatsLabel.setOnMouseClicked(clickEvent -> hideStats());
+
+        hideStatsLabel.getStyleClass().add("statsVisibilityLabel");
+
+        VBox.setMargin(hideStatsLabel, new Insets(0, 0, 18, 0));
+
+        stats.setStats(new Stats(pokemon).getStats());
+
+        VBox.setMargin(stats.getStats(), new Insets(125, 0, 55, 0));
 
         if(target.onMouseClickedProperty() != null) {
             scrollAnimation();
