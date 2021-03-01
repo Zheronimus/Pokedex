@@ -14,7 +14,6 @@ public class Header {
     private HBox header;
     private Button prevButton, nextButton;
     private HBox headerContent;
-    private ImageView sprite;
 
 
 
@@ -127,10 +126,8 @@ public class Header {
 
         headerContent.setAlignment(Pos.CENTER);
         headerContent.getChildren().addAll(new VBox(prevButton, new Label(String.format("#%03d", pokemon.getEntryNum()))), new VBox(nextButton, new Label(String.format("#%03d", Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).getEntryNum()))));
-        sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(pokemon.getEntryNum()).getName(), "Bit Sprites"), 0, 0, true, true));
-        prevButton.setGraphic(sprite);
-        sprite = new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).getName(), "Bit Sprites"), 0, 0, true, true));
-        nextButton.setGraphic(sprite);
+        prevButton.setGraphic(new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(pokemon.getEntryNum()).getName(), "Bit Sprites"), 0, 0, true, true)));
+        nextButton.setGraphic(new ImageView(new Image(Sprite.getImgFile(Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).getName(), "Bit Sprites"), 0, 0, true, true)));
         prevButton.getStyleClass().add("navButton");
         nextButton.getStyleClass().add("navButton");
         ((VBox) headerContent.getChildren().get(0)).setAlignment(Pos.CENTER);
