@@ -6,7 +6,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
-
 import java.util.ArrayList;
 
 public class Header {

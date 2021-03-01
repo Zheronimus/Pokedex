@@ -4,7 +4,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
-
 import java.util.ArrayList;
 
 public class Footer {
