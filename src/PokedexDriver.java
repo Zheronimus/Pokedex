@@ -20,8 +20,8 @@ public class PokedexDriver extends Application {
 		primaryStage.getIcons().add(new Image(new File("Resources/Pokeball.png").toURI().toURL().toString(), false));
 		primaryStage.setResizable(false);
 
-		ArrayList<Pokemon> nationalDex = new Dex().getNationalDex();
-		ArrayList<Pokemon> megaDex = new Dex().getMegaDex();
+		ArrayList<Pokemon> nationalDex = Dex.getNationalDex();
+		ArrayList<Pokemon> megaDex = Dex.getMegaDex();
 
 		Pokemon pokemon = Dex.getPokemonByEntry(1);
 
