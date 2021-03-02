@@ -123,6 +123,7 @@ public class FormCheckBox {
             body.setNameLabel(pokemon.getName());
             body.setSprite(pokemon);
             body.setCheckboxState();
+            body.hideStats();
         });
     }
 }
