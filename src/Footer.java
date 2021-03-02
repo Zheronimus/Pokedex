@@ -11,7 +11,7 @@ public class Footer {
 	private final VBox footer;
 
 
-	public Footer(Pokemon pokemon, Body body, Header header, ArrayList<Pokemon> nationalDex, ArrayList<Pokemon> megaDex) {
+	public Footer(Pokemon pokemon, Body body, Header header, final int DEX_SIZE, ArrayList<Pokemon> megaDex) {
 		
 		TextField searchBar = new TextField();
 		Button searchButton = new Button("\uD83D\uDD0E");
@@ -25,7 +25,7 @@ public class Footer {
 
 				Pokemon newPokemon;
 
-				if((isNumeric(input)) && (Integer.parseInt(input) > 0) && (Integer.parseInt(input) != pokemon.getEntryNum()) && (Integer.parseInt(input) <= nationalDex.size())) {
+				if((isNumeric(input)) && (Integer.parseInt(input) > 0) && (Integer.parseInt(input) != pokemon.getEntryNum()) && (Integer.parseInt(input) <= DEX_SIZE)) {
 					newPokemon = Dex.getPokemonByEntry(Integer.parseInt(input));
 				}
 
@@ -75,8 +75,8 @@ public class Footer {
 					body.setSprite(pokemon);
 					body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
 					body.setCheckboxState();
-					header.setSprite(pokemon.getEntryNum(), nationalDex.size());
-					header.setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
+					header.setSprite(pokemon.getEntryNum(), DEX_SIZE);
+					header.setEntryNumLabel(pokemon.getEntryNum(), DEX_SIZE);
 				}
 			}
 

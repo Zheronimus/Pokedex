@@ -27,7 +27,7 @@ public class PokedexDriver extends Application {
 
 		Body body = new Body(pokemon);
 		Header header = new Header(pokemon, body, nationalDex.size(), megaDex);
-		Footer footer = new Footer(pokemon, body, header, nationalDex, megaDex);
+		Footer footer = new Footer(pokemon, body, header, nationalDex.size(), megaDex);
 		BorderPane bp = new BorderPane(body.getBody(), header.getHeader(), null, footer.getFooter(), null);
 		
 		Scene scene = new Scene(bp, 500, 750);
