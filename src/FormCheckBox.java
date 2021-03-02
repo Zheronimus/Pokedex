@@ -14,7 +14,6 @@ public class FormCheckBox {
     private CheckBox checkBox;
 
 
-
     public FormCheckBox(String imgFilePath, String id) {
 
         formCheckBox = new VBox(8);
@@ -29,11 +28,9 @@ public class FormCheckBox {
     }
 
 
-
     public VBox getFormCheckBox() {
         return formCheckBox;
     }
-
 
 
     private ImageView getSymbol(String imgFilePath) {
@@ -60,7 +57,6 @@ public class FormCheckBox {
             return null;
         }
     }
-
 
 
     public void addMegaListener(Pokemon pokemon, Body body) {
@@ -103,7 +99,6 @@ public class FormCheckBox {
             body.hideStats();
         });
     }
-
 
 
     public void addGigantamaxListener(Pokemon pokemon, Body body) {
