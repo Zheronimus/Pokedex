@@ -17,7 +17,7 @@ public class FormCheckBox {
 
     public FormCheckBox(String imgFilePath, String id) {
 
-        formCheckBox = new VBox();
+        formCheckBox = new VBox(8);
         checkBox = new CheckBox();
 
         formCheckBox.setId(id);
@@ -26,7 +26,6 @@ public class FormCheckBox {
 
         formCheckBox.getChildren().addAll(getSymbol(imgFilePath), checkBox);
         formCheckBox.setAlignment(Pos.CENTER);
-        formCheckBox.setSpacing(8);
     }
 
 
@@ -73,12 +72,16 @@ public class FormCheckBox {
             if(newValue) {
                 if(formCheckBox.getId().equals("megaBoxY")) {
                     newPokemon = Dex.getMegaByIndex(Dex.getMegaIndex(pokemon) + 1);
-                } else {
+                }
+
+                else {
                     newPokemon = Dex.getMegaByIndex(Dex.getMegaIndex(pokemon));
                 }
 
                 pokemon.setMega(true);
-            } else {
+            }
+
+            else {
                 pokemon.setMega(false);
                 newPokemon = Dex.getPokemonByEntry(pokemon.getEntryNum());
             }
@@ -110,7 +113,9 @@ public class FormCheckBox {
             if(newValue) {
                 pokemon.setName("Gigantamax " + pokemon.getName());
                 pokemon.setGigantamax(true);
-            } else {
+            }
+
+            else {
                 pokemon.setGigantamax(false);
                 pokemon.setName(pokemon.getName().replace("Gigantamax", "").trim());
             }

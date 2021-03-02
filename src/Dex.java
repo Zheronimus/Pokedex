@@ -5,8 +5,7 @@ public class Dex {
 	private static ArrayList<Pokemon> nationalDex;
 	private static ArrayList<Pokemon> megaDex;
 	
-	
-	
+
 	public Dex() {
 		nationalDex = new ArrayList<>();
 		megaDex = new ArrayList<>();
@@ -16,24 +15,20 @@ public class Dex {
 	}
 
 
-
 	public ArrayList<Pokemon> getNationalDex() {
 		return nationalDex;
 	}
-
 
 
 	public ArrayList<Pokemon> getMegaDex() {
 		return megaDex;
 	}
 
-
 	
 	public static Pokemon getPokemonByEntry(int entryNum) {
 		return nationalDex.get(entryNum - 1).clone();
 	}
-	
-	
+
 	
 	public static Pokemon getPokemonByName(String name) {
 		
@@ -45,8 +40,7 @@ public class Dex {
 		
 		return null;
 	}
-	
-	
+
 	
     public static int getMegaIndex(Pokemon pokemon) {
     	
@@ -58,8 +52,7 @@ public class Dex {
         
         return 0;
     }
-	
-	
+
 	
 	public static Pokemon getMegaByIndex(int index) {
 		return megaDex.get(index);

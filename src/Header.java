@@ -15,7 +15,6 @@ public class Header {
     private HBox headerContent;
 
 
-
     public Header(Pokemon pokemon, Body body, final int DEX_SIZE, ArrayList<Pokemon> megaDex) {
 
         header = new HBox();
@@ -45,18 +44,24 @@ public class Header {
                         if(pokemon.hasSecondMega(megaDex)) {
                             body.addMegaBox(pokemon, "MegaSymbolX");
                             body.addMegaBox(pokemon, "MegaSymbolY");
-                        } else {
+                        }
+
+                        else {
                             if(!Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasMega(megaDex)) {
                                 body.addMegaBox(pokemon, "MegaSymbol");
                             }
                         }
-                    } else {
+                    }
+
+                    else {
                         body.removeMegaBox();
                     }
 
                     if(pokemon.hasGigantamax()) {
                         body.addGigantamaxBox(pokemon);
-                    } else {
+                    }
+
+                    else {
                         if(Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasGigantamax()) {
                             body.removeGigantamaxBox();
                         }
@@ -95,18 +100,24 @@ public class Header {
                         if(pokemon.hasSecondMega(megaDex)) {
                             body.addMegaBox(pokemon, "MegaSymbolX");
                             body.addMegaBox(pokemon, "MegaSymbolY");
-                        } else {
+                        }
+
+                        else {
                             if(!Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasMega(megaDex)) {
                                 body.addMegaBox(pokemon, "MegaSymbol");
                             }
                         }
-                    } else {
+                    }
+
+                    else {
                         body.removeMegaBox();
                     }
 
                     if(pokemon.hasGigantamax()) {
                         body.addGigantamaxBox(pokemon);
-                    } else {
+                    }
+
+                    else {
                         if(Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasGigantamax()) {
                             body.removeGigantamaxBox();
                         }
@@ -141,9 +152,7 @@ public class Header {
     }
 
 
-
     public HBox getHeader() { return header; }
-
 
 
     public void setSprite(int entryNum, final int DEX_SIZE) {
@@ -170,7 +179,6 @@ public class Header {
         prevButton.setGraphic(prevSprite);
         nextButton.setGraphic(nextSprite);
     }
-
 
 
     public void setEntryNumLabel(int entryNum, final int DEX_SIZE) {

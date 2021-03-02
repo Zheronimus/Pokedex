@@ -12,8 +12,7 @@ public class PokedexDriver extends Application {
 		launch(args);
 	}
 	
-	
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		

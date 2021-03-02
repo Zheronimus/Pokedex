@@ -9,7 +9,6 @@ public class Stats {
     private VBox stats;
 
 
-
     public Stats(Pokemon pokemon) {
 
         stats = new VBox(13);
@@ -52,7 +51,9 @@ public class Stats {
                 }
 
                 stats.getChildren().addAll(statBox, statLineBox);
-            } else {
+            }
+
+            else {
                 stats.getChildren().add(statLabels[i]);
             }
         }
@@ -62,11 +63,9 @@ public class Stats {
     }
 
 
-
     public VBox getStats() {
         return stats;
     }
-
 
 
     public void setStats(VBox stats) {

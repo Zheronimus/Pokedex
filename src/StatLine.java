@@ -8,14 +8,12 @@ public class StatLine extends Line {
 	private double partialLine;
 
 
-	
 	public StatLine() {
 		
 		this.setStrokeWidth(8);
 		this.setStrokeLineCap(StrokeLineCap.ROUND);
 	}
-	
-	
+
 	
 	public void setLength(int statValue) {
 		
@@ -26,15 +24,15 @@ public class StatLine extends Line {
 		
 		if(statValue == 255) {
 			this.setEndX(this.fullLine);
-		} else {
+		}
+
+		else {
 			this.setEndX(this.partialLine);
 		}
 	}
 
-	
-	
+
 	public void setColor(Color color) {
-		
 		this.setStroke(color);
 	}
 }

@@ -11,8 +11,7 @@ public class PokeData {
 		
 	}
 	
-	
-	
+
 	private static Connection connect() {
 		
 		String connString = "jdbc:sqlite:PokemonDB.db";
@@ -20,15 +19,16 @@ public class PokeData {
 
 		try {
 			conn = DriverManager.getConnection(connString);
-		} catch(SQLException e) {
+		}
+
+		catch(SQLException e) {
 			System.out.println(e.getMessage());
 		}
 
 		return conn;
 	}
 	
-	
-	
+
 	public static void setPokeData(ArrayList<Pokemon> dex, String tableName) {
 		
 		ResultSet data;
@@ -42,7 +42,9 @@ public class PokeData {
 						data.getInt("Hp"), data.getInt("Attack"), data.getInt("Defense"), data.getInt("SpAttack"), data.getInt("SpDefense"),
 						data.getInt("Speed")));
 			}
-		} catch(SQLException e) {
+		}
+
+		catch(SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}

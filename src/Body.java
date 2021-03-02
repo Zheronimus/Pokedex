@@ -22,7 +22,6 @@ public class Body {
     private ScrollPane body;
 
 
-
     public Body(Pokemon pokemon) {
 
         nameLabel = new Label(pokemon.getName());
@@ -66,11 +65,9 @@ public class Body {
     }
 
 
-
     public ScrollPane getBody() {
         return body;
     }
-
 
 
     public void setNameLabel(String name) {
@@ -78,11 +75,9 @@ public class Body {
     }
 
 
-
     public void setEntryNumLabel(int entryNum) {
         entryLabel.setText(String.format("#%03d", entryNum));
     }
-
 
 
     public void setTyping(String typeOne, String typeTwo) {
@@ -99,7 +94,6 @@ public class Body {
             typing.getChildren().add(typeTwoImg);
         }
     }
-
 
 
     public void setSprite(Pokemon pokemon) {
@@ -152,14 +146,15 @@ public class Body {
     }
 
 
-
     public void addMegaBox(Pokemon pokemon, String imgFile) {
 
         FormCheckBox megaBox;
 
         if(checkboxContent.getChildren().size() > 0) {
             megaBox = new FormCheckBox(imgFile, "megaBoxY");
-        } else {
+        }
+
+        else {
             megaBox = new FormCheckBox(imgFile, "megaBox");
         }
 
@@ -168,7 +163,6 @@ public class Body {
 
         VBox.setMargin(showStatsLabel, new Insets(20, 0, 0, 0));
     }
-
 
 
     public void removeMegaBox() {
@@ -191,7 +185,6 @@ public class Body {
     }
 
 
-
     public void addGigantamaxBox(Pokemon pokemon) {
 
         FormCheckBox gigantamaxBox = new FormCheckBox("GigantamaxSymbol", "gigantamaxBox");
@@ -201,7 +194,6 @@ public class Body {
 
         VBox.setMargin(showStatsLabel, new Insets(20, 0, 0, 0));
     }
-
 
 
     public void removeGigantamaxBox() {
@@ -222,7 +214,6 @@ public class Body {
             VBox.setMargin(showStatsLabel, new Insets(81, 0, 0, 0));
         }
     }
-
 
 
     private void showStats(Pokemon pokemon, Node target) {
@@ -252,7 +243,6 @@ public class Body {
     }
 
 
-
     public void hideStats() {
 
         if(!bottomContent.getChildren().isEmpty()) {
@@ -263,7 +253,6 @@ public class Body {
             bodyContent.getChildren().remove(bottomContent);
         }
     }
-
 
 
     private void scrollAnimation() {

@@ -11,7 +11,6 @@ public class Footer {
 	private final VBox footer;
 
 
-
 	public Footer(Pokemon pokemon, Body body, Header header, ArrayList<Pokemon> nationalDex, ArrayList<Pokemon> megaDex) {
 		
 		TextField searchBar = new TextField();
@@ -28,7 +27,9 @@ public class Footer {
 
 				if((isNumeric(input)) && (Integer.parseInt(input) > 0) && (Integer.parseInt(input) != pokemon.getEntryNum()) && (Integer.parseInt(input) <= nationalDex.size())) {
 					newPokemon = Dex.getPokemonByEntry(Integer.parseInt(input));
-				} else {
+				}
+
+				else {
 					newPokemon = Dex.getPokemonByName(input);
 				}
 
@@ -48,16 +49,22 @@ public class Footer {
 						if(pokemon.hasSecondMega(megaDex)) {
 							body.addMegaBox(pokemon, "MegaSymbolX");
 							body.addMegaBox(pokemon, "MegaSymbolY");
-						} else {
+						}
+
+						else {
 							body.addMegaBox(pokemon, "MegaSymbol");
 						}
-					} else {
+					}
+
+					else {
 						body.removeMegaBox();
 					}
 
 					if(pokemon.hasGigantamax()) {
 						body.addGigantamaxBox(pokemon);
-					} else {
+					}
+
+					else {
 						if(Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasGigantamax()) {
 							body.removeGigantamaxBox();
 						}
@@ -81,7 +88,7 @@ public class Footer {
 		searchButton.setMaxWidth(75);
 		searchButton.setStyle("-fx-font-size: 15px;");
 
-		footer.setAlignment(Pos.TOP_CENTER);
+		footer.setAlignment(Pos.CENTER);
 		footer.getStyleClass().add("footer");
 
 		VBox.setMargin(searchBar, new Insets(20, 0, 0, 0));
@@ -91,12 +98,10 @@ public class Footer {
 	}
 
 
-
 	public VBox getFooter() {
 		return footer;
 	}
-	
-	
+
 	
 	private boolean isNumeric(String text) {
 

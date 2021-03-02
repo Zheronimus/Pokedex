@@ -6,14 +6,12 @@ public class Pokemon {
     private int entryNum, baseHp, baseAtt, baseDef, baseSpA, baseSpD, baseSpeed;
     private boolean isMega, isGigantamax;
  
-    
-    
+
     public Pokemon() {
     	
     }
     
-    
-    
+
     public Pokemon(int entryNum, String name, String typeOne, String typeTwo, int baseHp, int baseAtt, int baseDef, int baseSpA, int baseSpD, int baseSpeed) {
 
     	this.entryNum = entryNum;
@@ -28,8 +26,7 @@ public class Pokemon {
     	this.baseSpeed = baseSpeed;
     }
     
-    
-    
+
     @Override
     public Pokemon clone() {
     	
@@ -49,120 +46,100 @@ public class Pokemon {
 		return pokemon;
     }
     
-    
-    
+
 	public int getEntryNum() {
 		return entryNum;
 	}
 	
-	
-	
+
 	public void setEntryNum(int entryNum) {
 		this.entryNum = entryNum;
 	}
 
-	
 
 	public String getName() {
 		return name;
 	}
 	
-	
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	
-	
+
 	public String getTypeOne() {
 		return typeOne;
 	}
 	
-	
-	
+
 	public void setTypeOne(String typeOne) {
 		this.typeOne = typeOne;
 	}
 
 
-	
 	public String getTypeTwo() {
 		return typeTwo;
 	}
 	
-	
-	
+
 	public void setTypeTwo(String typeTwo) {
 		this.typeTwo = typeTwo;
 	}
 
-	
 
 	public int getBaseHp() {
 		return baseHp;
 	}
-	
-	
+
 	
 	public void setBaseHp(int baseHp) {
 		this.baseHp = baseHp;
 	}
 
-	
 
 	public int getBaseAtt() {
 		return baseAtt;
 	}
 	
-	
-	
+
 	public void setBaseAtt(int baseAtt) {
 		this.baseAtt = baseAtt;
 	}
 
-	
 
 	public int getBaseDef() {
 		return baseDef;
 	}
 	
-	
-	
+
 	public void setBaseDef(int baseDef) {
 		this.baseDef = baseDef;
 	}
 
 
-	
 	public int getBaseSpA() {
 		return baseSpA;
 	}
 	
-	
-	
+
 	public void setBaseSpA(int baseSpA) {
 		this.baseSpA = baseSpA;
 	}
 
-	
 
 	public int getBaseSpD() {
 		return baseSpD;
 	}
 	
-	
-	
+
 	public void setBaseSpD(int baseSpD) {
 		this.baseSpD = baseSpD;
 	}
 	
-	
-	
+
 	public void setBaseSpeed(int baseSpeed) {
 		this.baseSpeed = baseSpeed;
 	}
-
 
 	
 	public int getBaseSpeed() {
@@ -170,11 +147,9 @@ public class Pokemon {
 	}
 
 
-
 	public boolean isMega() {
 		return isMega;
 	}
-
 
 
 	public void setMega(boolean isMega) {
@@ -182,25 +157,21 @@ public class Pokemon {
 	}
 
 
-
 	public boolean isGigantamax() {
 		return isGigantamax;
 	}
-
 
 
 	public void setGigantamax(boolean isGigantamax) {
 		this.isGigantamax = isGigantamax;
 	}
 	
-	
-	
+
 	public int getBaseTotal() {
     	return this.baseHp + this.baseAtt + this.baseDef + this.baseSpA + this.baseSpD + this.baseSpeed;
     }
 	
 
-	
 	public boolean hasMega(ArrayList<Pokemon> megaDex) {
 		
 		for(Pokemon pokemon : megaDex) {
@@ -208,7 +179,9 @@ public class Pokemon {
 				if(pokemon.entryNum == this.entryNum) {
 					return true;
 				}
-			} else {
+			}
+
+			else {
 				break;
 			}
 		}
@@ -216,8 +189,7 @@ public class Pokemon {
 		return false;
 	}
 	
-	
-	
+
     public boolean hasSecondMega(ArrayList<Pokemon> megaDex) {
     	
         for(int i = 0; i < megaDex.size(); i++) {
@@ -226,7 +198,9 @@ public class Pokemon {
 		            if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
 						return true;
 					}
-        		} else {
+        		}
+
+        		else {
 					break;
 				}
         	}
@@ -235,8 +209,7 @@ public class Pokemon {
         return false;
     }
     
-    
-    
+
     public boolean hasGigantamax() {
     	
     	int[] gigantamaxEntryNums = { 3, 6, 9, 12, 25, 52, 68, 94, 99, 131, 133, 143, 569, 809, 812, 815, 818, 
@@ -247,7 +220,9 @@ public class Pokemon {
 	    		if(this.entryNum == gigantamaxEntryNums[i]) {
 					return true;
 				}
-    		} else {
+    		}
+
+    		else {
 				break;
 			}
     	}

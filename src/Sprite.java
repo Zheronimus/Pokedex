@@ -25,7 +25,6 @@ public final class Sprite {
     }
 
 
-
     public static FileInputStream getImgFile(String name, String folderName) {
 
         try {
@@ -45,7 +44,9 @@ public final class Sprite {
             }
 
             return imgFile;
-        } catch(FileNotFoundException e) {
+        }
+
+        catch(FileNotFoundException e) {
             System.out.println(e.getMessage());
 
             return null;
