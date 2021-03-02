@@ -15,12 +15,12 @@ public class Dex {
 	}
 
 
-	public static ArrayList<Pokemon> getNationalDex() {
+	public ArrayList<Pokemon> getNationalDex() {
 		return nationalDex;
 	}
 
 
-	public static ArrayList<Pokemon> getMegaDex() {
+	public ArrayList<Pokemon> getMegaDex() {
 		return megaDex;
 	}
 
