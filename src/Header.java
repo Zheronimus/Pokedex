@@ -16,7 +16,7 @@ public class Header {
 
 
 
-    public Header(Pokemon pokemon, Body body, ArrayList<Pokemon> nationalDex, ArrayList<Pokemon> megaDex) {
+    public Header(Pokemon pokemon, Body body, final int DEX_SIZE, ArrayList<Pokemon> megaDex) {
 
         header = new HBox();
         prevButton = new Button();
@@ -67,15 +67,15 @@ public class Header {
                     body.setSprite(pokemon);
                     body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
                     body.hideStats();
-                    setSprite(pokemon.getEntryNum(), nationalDex.size());
-                    setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
+                    setSprite(pokemon.getEntryNum(), DEX_SIZE);
+                    setEntryNumLabel(pokemon.getEntryNum(), DEX_SIZE);
                 }
             }
         });
 
         nextButton.setOnMouseClicked(clickEvent -> {
             if(clickEvent.getButton() == MouseButton.PRIMARY) {
-                if(pokemon.getEntryNum() < nationalDex.size()) {
+                if(pokemon.getEntryNum() < DEX_SIZE) {
                     Pokemon newPokemon;
 
                     newPokemon = Dex.getPokemonByEntry(pokemon.getEntryNum() + 1);
@@ -117,8 +117,8 @@ public class Header {
                     body.setSprite(pokemon);
                     body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
                     body.hideStats();
-                    setSprite(pokemon.getEntryNum(), nationalDex.size());
-                    setEntryNumLabel(pokemon.getEntryNum(), nationalDex.size());
+                    setSprite(pokemon.getEntryNum(), DEX_SIZE);
+                    setEntryNumLabel(pokemon.getEntryNum(), DEX_SIZE);
                 }
             }
         });
@@ -175,9 +175,22 @@ public class Header {
 
     public void setEntryNumLabel(int entryNum, final int DEX_SIZE) {
 
+        Label prevEntryNumLabel = (Label)((VBox) headerContent.getChildren().get(0)).getChildren().get(1);
+        Label nextEntryNumLabel = (Label)((VBox) headerContent.getChildren().get(1)).getChildren().get(1);
+
         if(entryNum > 1 && entryNum < DEX_SIZE) {
-            ((Label)((VBox)(headerContent.getChildren().get(0))).getChildren().get(1)).setText(String.format("#%03d", entryNum - 1));
-            ((Label)((VBox)(headerContent.getChildren().get(1))).getChildren().get(1)).setText(String.format("#%03d", entryNum + 1));
+            prevEntryNumLabel.setText(String.format("#%03d", entryNum - 1));
+            nextEntryNumLabel.setText(String.format("#%03d", entryNum + 1));
+        }
+
+        else if(entryNum == 1) {
+            prevEntryNumLabel.setText(String.format("#%03d", entryNum));
+            nextEntryNumLabel.setText(String.format("#%03d", entryNum + 1));
+        }
+
+        else if(entryNum == DEX_SIZE) {
+            prevEntryNumLabel.setText(String.format("#%03d", entryNum - 1));
+            nextEntryNumLabel.setText(String.format("#%03d", entryNum));
         }
     }
 }
