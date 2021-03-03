@@ -40,8 +40,18 @@ public class Header {
                     pokemon.setBaseSpD(newPokemon.getBaseSpD());
                     pokemon.setBaseSpeed(newPokemon.getBaseSpeed());
 
+                    if(pokemon.hasGigantamax()) {
+                        body.addGigantamaxBox(pokemon);
+                    }
+
+                    else {
+                        if(Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasGigantamax()) {
+                            body.removeGigantamaxBox();
+                        }
+                    }
+
                     if(pokemon.hasMega(megaDex)) {
-                        if(pokemon.hasSecondMega(megaDex)) {
+                        if(pokemon.hasSecondMega(megaDex.size())) {
                             body.addMegaBox(pokemon, "MegaSymbolX");
                             body.addMegaBox(pokemon, "MegaSymbolY");
                         }
@@ -55,16 +65,6 @@ public class Header {
 
                     else {
                         body.removeMegaBox();
-                    }
-
-                    if(pokemon.hasGigantamax()) {
-                        body.addGigantamaxBox(pokemon);
-                    }
-
-                    else {
-                        if(Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasGigantamax()) {
-                            body.removeGigantamaxBox();
-                        }
                     }
 
                     body.setNameLabel(pokemon.getName());
@@ -97,7 +97,7 @@ public class Header {
                     pokemon.setBaseSpeed(newPokemon.getBaseSpeed());
 
                     if(pokemon.hasMega(megaDex)) {
-                        if(pokemon.hasSecondMega(megaDex)) {
+                        if(pokemon.hasSecondMega(megaDex.size())) {
                             body.addMegaBox(pokemon, "MegaSymbolX");
                             body.addMegaBox(pokemon, "MegaSymbolY");
                         }

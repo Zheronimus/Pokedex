@@ -46,7 +46,7 @@ public class Footer {
 					pokemon.setBaseSpeed(newPokemon.getBaseSpeed());
 
 					if(pokemon.hasMega(megaDex)) {
-						if(pokemon.hasSecondMega(megaDex)) {
+						if(pokemon.hasSecondMega(megaDex.size())) {
 							body.addMegaBox(pokemon, "MegaSymbolX");
 							body.addMegaBox(pokemon, "MegaSymbolY");
 						}

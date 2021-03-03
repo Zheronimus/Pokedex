@@ -190,10 +190,10 @@ public class Pokemon {
 	}
 	
 
-    public boolean hasSecondMega(ArrayList<Pokemon> megaDex) {
+    public boolean hasSecondMega(final int DEX_SIZE) {
     	
-        for(int i = 0; i < megaDex.size(); i++) {
-        	if(Dex.getMegaIndex(this) != megaDex.size() - 1) {
+        for(int i = 0; i < DEX_SIZE; i++) {
+        	if(Dex.getMegaIndex(this) != DEX_SIZE - 1) {
         		if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
 		            if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
 						return true;
