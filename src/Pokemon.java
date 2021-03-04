@@ -168,15 +168,17 @@ public class Pokemon {
 	
 
 	public int getBaseTotal() {
-    	return this.baseHp + this.baseAtt + this.baseDef + this.baseSpA + this.baseSpD + this.baseSpeed;
+    	return baseHp + baseAtt + baseDef + baseSpA + baseSpD + baseSpeed;
     }
 	
 
-	public boolean hasMega(ArrayList<Pokemon> megaDex) {
-		
+	public boolean hasMega() {
+
+        ArrayList<Pokemon> megaDex = new Dex().getMegaDex();
+
 		for(Pokemon pokemon : megaDex) {
-			if(pokemon.entryNum <= this.entryNum) {
-				if(pokemon.entryNum == this.entryNum) {
+			if(pokemon.entryNum <= entryNum) {
+				if(pokemon.entryNum == entryNum) {
 					return true;
 				}
 			}
@@ -190,11 +192,13 @@ public class Pokemon {
 	}
 
 
-    public boolean hasSecondMega(final int DEX_SIZE) {
+    public boolean hasSecondMega() {
+
+        final int DEX_SIZE = Dex.megaDexSize();
 
         for(int i = 0; i < DEX_SIZE; i++) {
         	if(Dex.getMegaIndex(this) != DEX_SIZE - 1) {
-				if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
+				if(entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
 					return true;
 				}
 
@@ -214,8 +218,8 @@ public class Pokemon {
     			823, 826, 834, 839, 841, 844, 849, 851, 858, 861, 869, 879, 884, 892 };
     	
     	for(int i = 0; i < gigantamaxEntryNums.length; i++) {
-    		if(gigantamaxEntryNums[i] <= this.entryNum) {
-	    		if(this.entryNum == gigantamaxEntryNums[i]) {
+    		if(gigantamaxEntryNums[i] <= entryNum) {
+	    		if(entryNum == gigantamaxEntryNums[i]) {
 					return true;
 				}
     		}

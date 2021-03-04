@@ -150,7 +150,7 @@ public class Body {
 
         FormCheckBox megaBox;
 
-        if(checkboxContent.getChildren().size() > 0) {
+        if(!checkboxContent.getChildren().isEmpty() && pokemon.hasSecondMega()) {
             megaBox = new FormCheckBox(imgFile, "megaBoxY");
         }
 

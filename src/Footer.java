@@ -4,14 +4,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
-import java.util.ArrayList;
 
 public class Footer {
 
 	private final VBox footer;
 
 
-	public Footer(Pokemon pokemon, Body body, Header header, final int DEX_SIZE, ArrayList<Pokemon> megaDex) {
+	public Footer(Pokemon pokemon, Body body, Header header) {
+
+		final int DEX_SIZE = Dex.nationalDexSize();
 		
 		TextField searchBar = new TextField();
 		Button searchButton = new Button("\uD83D\uDD0E");
@@ -45,8 +46,8 @@ public class Footer {
 					pokemon.setBaseSpD(newPokemon.getBaseSpD());
 					pokemon.setBaseSpeed(newPokemon.getBaseSpeed());
 
-					if(pokemon.hasMega(megaDex)) {
-						if(pokemon.hasSecondMega(megaDex.size())) {
+					if(pokemon.hasMega()) {
+						if(pokemon.hasSecondMega()) {
 							body.addMegaBox(pokemon, "MegaSymbolX");
 							body.addMegaBox(pokemon, "MegaSymbolY");
 						}
@@ -75,8 +76,8 @@ public class Footer {
 					body.setSprite(pokemon);
 					body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
 					body.setCheckboxState();
-					header.setSprite(pokemon.getEntryNum(), DEX_SIZE);
-					header.setEntryNumLabel(pokemon.getEntryNum(), DEX_SIZE);
+					header.setSprite(pokemon.getEntryNum());
+					header.setEntryNumLabel(pokemon.getEntryNum());
 				}
 			}
 

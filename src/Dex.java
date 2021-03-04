@@ -24,6 +24,15 @@ public class Dex {
 		return megaDex;
 	}
 
+
+	public static int nationalDexSize() {
+	    return nationalDex.size();
+    }
+
+	public static int megaDexSize() {
+	    return megaDex.size();
+    }
+
 	
 	public static Pokemon getPokemonByEntry(int entryNum) {
 		return nationalDex.get(entryNum - 1).clone();

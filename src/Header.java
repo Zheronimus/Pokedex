@@ -6,7 +6,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
-import java.util.ArrayList;
 
 public class Header {
 
@@ -15,7 +14,9 @@ public class Header {
     private HBox headerContent;
 
 
-    public Header(Pokemon pokemon, Body body, final int DEX_SIZE, ArrayList<Pokemon> megaDex) {
+    public Header(Pokemon pokemon, Body body) {
+
+        final int DEX_SIZE = Dex.nationalDexSize();
 
         header = new HBox();
         prevButton = new Button();
@@ -40,14 +41,14 @@ public class Header {
                     pokemon.setBaseSpD(newPokemon.getBaseSpD());
                     pokemon.setBaseSpeed(newPokemon.getBaseSpeed());
 
-                    if(pokemon.hasMega(megaDex)) {
-                        if(pokemon.hasSecondMega(megaDex.size())) {
+                    if(pokemon.hasMega()) {
+                        if(pokemon.hasSecondMega()) {
                             body.addMegaBox(pokemon, "MegaSymbolX");
                             body.addMegaBox(pokemon, "MegaSymbolY");
                         }
 
                         else {
-                            if(!Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasMega(megaDex)) {
+                            if(!Dex.getPokemonByEntry(pokemon.getEntryNum() + 1).hasMega()) {
                                 body.addMegaBox(pokemon, "MegaSymbol");
                             }
                         }
@@ -72,8 +73,8 @@ public class Header {
                     body.setSprite(pokemon);
                     body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
                     body.hideStats();
-                    setSprite(pokemon.getEntryNum(), DEX_SIZE);
-                    setEntryNumLabel(pokemon.getEntryNum(), DEX_SIZE);
+                    setSprite(pokemon.getEntryNum());
+                    setEntryNumLabel(pokemon.getEntryNum());
                 }
             }
         });
@@ -96,14 +97,14 @@ public class Header {
                     pokemon.setBaseSpD(newPokemon.getBaseSpD());
                     pokemon.setBaseSpeed(newPokemon.getBaseSpeed());
 
-                    if(pokemon.hasMega(megaDex)) {
-                        if(pokemon.hasSecondMega(megaDex.size())) {
+                    if(pokemon.hasMega()) {
+                        if(pokemon.hasSecondMega()) {
                             body.addMegaBox(pokemon, "MegaSymbolX");
                             body.addMegaBox(pokemon, "MegaSymbolY");
                         }
 
                         else {
-                            if(!Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasMega(megaDex)) {
+                            if(!Dex.getPokemonByEntry(pokemon.getEntryNum() - 1).hasMega()) {
                                 body.addMegaBox(pokemon, "MegaSymbol");
                             }
                         }
@@ -128,8 +129,8 @@ public class Header {
                     body.setSprite(pokemon);
                     body.setTyping(pokemon.getTypeOne(), pokemon.getTypeTwo());
                     body.hideStats();
-                    setSprite(pokemon.getEntryNum(), DEX_SIZE);
-                    setEntryNumLabel(pokemon.getEntryNum(), DEX_SIZE);
+                    setSprite(pokemon.getEntryNum());
+                    setEntryNumLabel(pokemon.getEntryNum());
                 }
             }
         });
@@ -155,7 +156,9 @@ public class Header {
     public HBox getHeader() { return header; }
 
 
-    public void setSprite(int entryNum, final int DEX_SIZE) {
+    public void setSprite(int entryNum) {
+
+        final int DEX_SIZE = Dex.nationalDexSize();
 
         ImageView nextSprite = null;
         ImageView prevSprite = null;
@@ -181,7 +184,9 @@ public class Header {
     }
 
 
-    public void setEntryNumLabel(int entryNum, final int DEX_SIZE) {
+    public void setEntryNumLabel(int entryNum) {
+
+        final int DEX_SIZE = Dex.nationalDexSize();
 
         Label prevEntryNumLabel = (Label)((VBox) headerContent.getChildren().get(0)).getChildren().get(1);
         Label nextEntryNumLabel = (Label)((VBox) headerContent.getChildren().get(1)).getChildren().get(1);
