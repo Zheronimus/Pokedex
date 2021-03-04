@@ -188,17 +188,15 @@ public class Pokemon {
 		
 		return false;
 	}
-	
+
 
     public boolean hasSecondMega(final int DEX_SIZE) {
-    	
+
         for(int i = 0; i < DEX_SIZE; i++) {
         	if(Dex.getMegaIndex(this) != DEX_SIZE - 1) {
-        		if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
-		            if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
-						return true;
-					}
-        		}
+				if(this.entryNum == Dex.getMegaByIndex(Dex.getMegaIndex(this) + 1).entryNum) {
+					return true;
+				}
 
         		else {
 					break;

@@ -43,17 +43,17 @@ public class Dex {
 
 	
     public static int getMegaIndex(Pokemon pokemon) {
-    	
+
         for(int i = 0; i < megaDex.size(); i++) {
             if(megaDex.get(i).getEntryNum() == pokemon.getEntryNum()) {
 				return i;
 			}
         }
-        
+
         return 0;
     }
 
-	
+
 	public static Pokemon getMegaByIndex(int index) {
 		return megaDex.get(index);
 	}
