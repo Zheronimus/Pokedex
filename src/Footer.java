@@ -12,7 +12,7 @@ public class Footer {
 
 	public Footer(Pokemon pokemon, Body body, Header header) {
 
-		final int DEX_SIZE = Dex.nationalDexSize();
+		final int DEX_SIZE = new Dex().getNationalDex().size();
 		
 		TextField searchBar = new TextField();
 		Button searchButton = new Button("\uD83D\uDD0E");

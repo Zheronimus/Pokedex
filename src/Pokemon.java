@@ -194,7 +194,7 @@ public class Pokemon {
 
     public boolean hasSecondMega() {
 
-        final int DEX_SIZE = Dex.megaDexSize();
+        final int DEX_SIZE = new Dex().getMegaDex().size();
 
         for(int i = 0; i < DEX_SIZE; i++) {
         	if(Dex.getMegaIndex(this) != DEX_SIZE - 1) {

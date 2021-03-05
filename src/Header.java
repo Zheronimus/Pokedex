@@ -16,7 +16,7 @@ public class Header {
 
     public Header(Pokemon pokemon, Body body) {
 
-        final int DEX_SIZE = Dex.nationalDexSize();
+        final int DEX_SIZE = new Dex().getNationalDex().size();
 
         header = new HBox();
         prevButton = new Button();
@@ -158,7 +158,7 @@ public class Header {
 
     public void setSprite(int entryNum) {
 
-        final int DEX_SIZE = Dex.nationalDexSize();
+        final int DEX_SIZE = new Dex().getNationalDex().size();
 
         ImageView nextSprite = null;
         ImageView prevSprite = null;
@@ -186,7 +186,7 @@ public class Header {
 
     public void setEntryNumLabel(int entryNum) {
 
-        final int DEX_SIZE = Dex.nationalDexSize();
+        final int DEX_SIZE = new Dex().getNationalDex().size();
 
         Label prevEntryNumLabel = (Label)((VBox) headerContent.getChildren().get(0)).getChildren().get(1);
         Label nextEntryNumLabel = (Label)((VBox) headerContent.getChildren().get(1)).getChildren().get(1);
