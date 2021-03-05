@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public final class Sprite {
+public class Sprite {
 
     private enum Unicode {
 

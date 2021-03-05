@@ -116,7 +116,6 @@ public class Body {
     }
 
 
-
     public void setCheckboxState() {
 
         if(checkboxContent.getChildren().size() > 1) {

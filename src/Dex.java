@@ -7,6 +7,7 @@ public class Dex {
 	
 
 	public Dex() {
+
 		nationalDex = new ArrayList<>();
 		megaDex = new ArrayList<>();
 
